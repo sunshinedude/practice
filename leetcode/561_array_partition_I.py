@@ -1,5 +1,3 @@
-from typing import List
-
 # Problem
 
 # Given an array of 2n integers, your task is to group these integers into n pairs of integer,
@@ -15,24 +13,20 @@ from typing import List
 # All the integers in the array will be in the range of [-10000, 10000].
 
 # Solution
+from leetcode.test import Test
+
+from typing import List
 
 
 class Solution:
-	def arrayPairSum(self, nums: List[int]) -> int:
-		nums.sort()
-		return sum(nums[::2])
+    def arrayPairSum(self, nums: List[int]) -> int:
+        nums.sort()
+        return sum(nums[::2])
 
-test = Solution()
+
+# Tests
+
 cases = [
-	{"input": [1,4,3,2],
-	 "output": 4},
-
+    {"input": [1, 4, 3, 2], "output": 4},
 ]
-
-for case in cases:
-	result = test.arrayPairSum(case["input"])
-	if case["output"] == result:
-		print("OK")
-	else:
-		print("FAIL")
-		print("case: {}, result: {}".format(case, result))
+Test(Solution().arrayPairSum, cases, True).test()
