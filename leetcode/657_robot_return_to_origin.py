@@ -58,5 +58,3 @@ cases = [
 ]
 Test(Solution().judgeCircle, cases, True).test()
 Test(Solution_1().judgeCircle, cases, True).test()
-
-
