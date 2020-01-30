@@ -7,24 +7,27 @@ class Solution:
     # Solution for one pass through the list
     def sortedSquares(self, A: List[int]) -> List[int]:
         i = 0
-        while i < len(A) and A[i] < 0:
+        L = len(A)
+        while i < L and A[i] < 0:
             i += 1
         j = i
         i -= 1
         res = []
-        while i >= 0 and j < len(A):
-            if A[i] ** 2 < A[j] ** 2:
-                res.append(A[i]**2)
+        while i >= 0 and j < L:
+            sqr_i = A[i] * A[i]
+            sqr_j = A[j] * A[j]
+            if sqr_i < sqr_j:
+                res.append(sqr_i)
                 i -= 1
             else:
-                res.append(A[j]**2)
+                res.append(sqr_j)
                 j += 1
 
-        while len(A) > i >= 0:
-            res.append(A[i] ** 2)
+        while L > i >= 0:
+            res.append(A[i] * A[i])
             i -= 1
-        while j < len(A):
-            res.append(A[j] ** 2)
+        while j < L:
+            res.append(A[j] * A[j])
             j += 1
         return res
 
