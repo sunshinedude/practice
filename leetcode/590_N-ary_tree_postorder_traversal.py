@@ -45,4 +45,5 @@ class Node:
 
 
 class Solution:
-    def postorder(self, root: 'Node') -> List[int]:
+    def postorder(self, root: "Node") -> List[int]:
+        return list()

@@ -32,33 +32,33 @@
 
 
 class RecentCounter:
-	# Default list
-	def __init__(self):
-		self.count_matcher = []
+    # Default list
+    def __init__(self):
+        self.count_matcher = []
 
-	def ping(self, t: int) -> int:
-		self.count_matcher.append(t)
-		i = 0
-		for p in self.count_matcher:
-			if p < t - 3000:
-				i += 1
-			else:
-				break
-		self.count_matcher = self.count_matcher[i::]
+    def ping(self, t: int) -> int:
+        self.count_matcher.append(t)
+        i = 0
+        for p in self.count_matcher:
+            if p < t - 3000:
+                i += 1
+            else:
+                break
+        self.count_matcher = self.count_matcher[i::]
 
-		return len(self.count_matcher)
+        return len(self.count_matcher)
 
 
 class RecentCounter_1:
-	# deque
-	def __init__(self):
-		import collections
-		self.queue = collections.deque()
+    # deque
+    def __init__(self):
+        import collections
 
-	def ping(self, t: int) -> int:
-		self.queue.append(t)
-		while self.queue[0] < t - 3000:
-			self.queue.popleft()
+        self.queue = collections.deque()
 
-		return len(self.queue)
+    def ping(self, t: int) -> int:
+        self.queue.append(t)
+        while self.queue[0] < t - 3000:
+            self.queue.popleft()
 
+        return len(self.queue)

@@ -22,24 +22,24 @@ from leetcode.test import Test
 
 
 class Solution:
-	def selfDividingNumbers(self, left: int, right: int) -> List[int]:
-		res = []
-		for i in range(left, right + 1):
-			tmp = i
-			flag = True
-			while tmp:
-				if not tmp % 10 or i % (tmp % 10):
-					flag = False
-					break
-				tmp = tmp // 10
-			if flag:
-				res.append(i)
-		return res
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        res = []
+        for i in range(left, right + 1):
+            tmp = i
+            flag = True
+            while tmp:
+                if not tmp % 10 or i % (tmp % 10):
+                    flag = False
+                    break
+                tmp = tmp // 10
+            if flag:
+                res.append(i)
+        return res
 
 
 # Tests
 
 cases = [
-	{"input": [1, 22], "output": [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]},
+    {"input": [1, 22], "output": [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]},
 ]
 Test(Solution().selfDividingNumbers, cases, False).test()

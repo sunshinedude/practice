@@ -37,20 +37,43 @@ from leetcode.test import Test
 
 
 class Solution:
-	def uniqueMorseRepresentations(self, words: List[str]) -> int:
-		morze = [
-			".-", "-...", "-.-.", "-..", ".", "..-.",
-			"--.", "....", "..", ".---", "-.-", ".-..",
-			"--", "-.", "---", ".--.", "--.-", ".-.",
-			"...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."]
-		decode_dict = {chr(i + 97): morze[i] for i in range(26)}
-		decode_words = ["".join([decode_dict[c] for c in word]) for word in words]
-		return len(set(decode_words))
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        morze = [
+            ".-",
+            "-...",
+            "-.-.",
+            "-..",
+            ".",
+            "..-.",
+            "--.",
+            "....",
+            "..",
+            ".---",
+            "-.-",
+            ".-..",
+            "--",
+            "-.",
+            "---",
+            ".--.",
+            "--.-",
+            ".-.",
+            "...",
+            "-",
+            "..-",
+            "...-",
+            ".--",
+            "-..-",
+            "-.--",
+            "--..",
+        ]
+        decode_dict = {chr(i + 97): morze[i] for i in range(26)}
+        decode_words = ["".join([decode_dict[c] for c in word]) for word in words]
+        return len(set(decode_words))
 
 
 # Tests
 
 cases = [
-	{"input": ["gin", "zen", "gig", "msg"], "output": 2},
+    {"input": ["gin", "zen", "gig", "msg"], "output": 2},
 ]
 Test(Solution().uniqueMorseRepresentations, cases, True).test()

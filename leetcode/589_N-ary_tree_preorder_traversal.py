@@ -39,36 +39,37 @@ from typing import List
 
 
 class Node:
-	def __init__(self, val=None, children=None):
-		self.val = val
-		self.children = children
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
 
 
 class Solution:
-	# solution with recursion
-	def preorder(self, root: 'Node') -> List[int]:
-		res = []
+    # solution with recursion
+    def preorder(self, root: "Node") -> List[int]:
+        res = []
 
-		def added_children(roots):
-			if roots:
-				for i in roots:
-					res.append(i.val)
-					added_children(i.children)
-		added_children([root] if root else [])
-		return res
+        def added_children(roots):
+            if roots:
+                for i in roots:
+                    res.append(i.val)
+                    added_children(i.children)
+
+        added_children([root] if root else [])
+        return res
 
 
 class Solution_1:
-	# solution with cycle
-	def preorder(self, root: 'Node') -> List[int]:
-		res = []
-		childs = [root] if root else []
+    # solution with cycle
+    def preorder(self, root: "Node") -> List[int]:
+        res = []
+        childs = [root] if root else []
 
-		while childs:
-			res.append(root.val)
-			if root.children:
-				root.children.reverse()
-				childs += root.children
-			root = childs[-1]
-			childs.pop()
-		return res
+        while childs:
+            res.append(root.val)
+            if root.children:
+                root.children.reverse()
+                childs += root.children
+            root = childs[-1]
+            childs.pop()
+        return res

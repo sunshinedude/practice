@@ -39,25 +39,24 @@ from leetcode.test import Test
 
 
 class Solution:
-	def oddCells(self, n: int, m: int, indices: List[List[int]]) -> int:
-		matrix = [[0 for _ in range(m)] for _ in range(n)]
-		for index in indices:
-			matrix[index[0]] = [i + 1 for i in matrix[index[0]]]
-			for line in matrix:
-				line[index[1]] += 1
-		res = 0
-		for line in matrix:
-			for item in line:
-				if item % 2 != 0:
-					res += 1
-		return res
+    def oddCells(self, n: int, m: int, indices: List[List[int]]) -> int:
+        matrix = [[0 for _ in range(m)] for _ in range(n)]
+        for index in indices:
+            matrix[index[0]] = [i + 1 for i in matrix[index[0]]]
+            for line in matrix:
+                line[index[1]] += 1
+        res = 0
+        for line in matrix:
+            for item in line:
+                if item % 2 != 0:
+                    res += 1
+        return res
 
 
 # Tests
 
 cases = [
-	{"input": [2, 3, [[0, 1], [1, 1]]], "output": 6},
-	{"input": [2, 2, [[1, 1], [0, 0]]], "output": 0},
-
+    {"input": [2, 3, [[0, 1], [1, 1]]], "output": 6},
+    {"input": [2, 2, [[1, 1], [0, 0]]], "output": 0},
 ]
 Test(Solution().oddCells, cases, False).test()

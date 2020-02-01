@@ -31,30 +31,30 @@ from leetcode.test import Test
 
 
 class Solution:
-	# Base solution
-	def judgeCircle(self, moves: str) -> bool:
-		moves_as_dict = {
-			'U': 0,
-			'D': 0,
-			'L': 0,
-			'R': 0
-		}
-		for c in moves:
-			moves_as_dict[c] += 1
-		return moves_as_dict['U'] == moves_as_dict['D'] and moves_as_dict['L'] == moves_as_dict['R']
+    # Base solution
+    def judgeCircle(self, moves: str) -> bool:
+        moves_as_dict = {"U": 0, "D": 0, "L": 0, "R": 0}
+        for c in moves:
+            moves_as_dict[c] += 1
+        return (
+            moves_as_dict["U"] == moves_as_dict["D"]
+            and moves_as_dict["L"] == moves_as_dict["R"]
+        )
 
 
 class Solution_1:
-	# Python solution
-	def judgeCircle(self, moves: str) -> bool:
-		return moves.count('U') == moves.count('D') and moves.count('L') == moves.count('R')
+    # Python solution
+    def judgeCircle(self, moves: str) -> bool:
+        return moves.count("U") == moves.count("D") and moves.count("L") == moves.count(
+            "R"
+        )
 
 
 # Tests
 
 cases = [
-	{"input": "UD", "output": True},
-	{"input": "LL", "output": False},
+    {"input": "UD", "output": True},
+    {"input": "LL", "output": False},
 ]
 Test(Solution().judgeCircle, cases, True).test()
 Test(Solution_1().judgeCircle, cases, True).test()

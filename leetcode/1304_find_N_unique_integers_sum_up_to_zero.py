@@ -30,21 +30,20 @@ from leetcode.test import Test
 
 
 class Solution:
-	def sumZero(self, n: int) -> List[int]:
-		res = []
-		for i in range(1, int(n / 2) + 1):
-			res += [i, 0 - i]
-		if n % 2:
-			res.append(0)
-		return res
+    def sumZero(self, n: int) -> List[int]:
+        res = []
+        for i in range(1, int(n / 2) + 1):
+            res += [i, 0 - i]
+        if n % 2:
+            res.append(0)
+        return res
 
 
 # Tests
 
 cases = [
-	{"input": 5, "output": [1, -1, 2, -2, 0]},
-	{"input": 3, "output": [1, -1, 0]},
-	{"input": 1, "output": [0]},
-
+    {"input": 5, "output": [1, -1, 2, -2, 0]},
+    {"input": 3, "output": [1, -1, 0]},
+    {"input": 1, "output": [0]},
 ]
 Test(Solution().sumZero, cases, True).test()

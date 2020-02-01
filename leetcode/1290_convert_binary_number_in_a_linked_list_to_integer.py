@@ -43,6 +43,7 @@
 
 # Definition for singly-linked list.
 
+
 class ListNode:
     def __init__(self, x):
         self.val = x
@@ -51,7 +52,7 @@ class ListNode:
 
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
-        b = ''
+        b = ""
         while head:
             b += str(head.val)
             head = head.next

@@ -48,32 +48,31 @@ from leetcode.test import Test
 
 
 class Solution:
-	def removeOuterParentheses(self, S: str) -> str:
-		first_left_index = 0
-		left_count = 0
-		right_count = 0
-		res = ""
+    def removeOuterParentheses(self, S: str) -> str:
+        first_left_index = 0
+        left_count = 0
+        right_count = 0
+        res = ""
 
-		for i in range(len(S)):
-			if S[i] == "(":
-				if left_count == right_count:
-					first_left_index = i
-				left_count += 1
-			else:
-				right_count += 1
-				if right_count == left_count:
-					res += S[first_left_index + 1: i]
-					left_count = 0
-					right_count = 0
-		return res
+        for i in range(len(S)):
+            if S[i] == "(":
+                if left_count == right_count:
+                    first_left_index = i
+                left_count += 1
+            else:
+                right_count += 1
+                if right_count == left_count:
+                    res += S[first_left_index + 1 : i]
+                    left_count = 0
+                    right_count = 0
+        return res
 
 
 # Tests
 
 cases = [
-	{"input": "(()())(())", "output":  "()()()"},
-	{"input": "(()())(())(()(()))", "output": "()()()()(())"},
-	{"input": "()()", "output": ""},
-
+    {"input": "(()())(())", "output": "()()()"},
+    {"input": "(()())(())(()(()))", "output": "()()()()(())"},
+    {"input": "()()", "output": ""},
 ]
 Test(Solution().removeOuterParentheses, cases, True).test()

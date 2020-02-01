@@ -41,7 +41,7 @@ class Solution_1:
 # Tests
 
 cases = [
-    {"input": [-4,-1,0,3,10], "output": [0,1,9,16,100]},
+    {"input": [-4, -1, 0, 3, 10], "output": [0, 1, 9, 16, 100]},
     {"input": [-2, 0], "output": [0, 4]},
     {"input": [-1], "output": [1]},
 ]

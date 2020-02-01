@@ -22,26 +22,26 @@ from leetcode.test import Test
 
 
 class Solution:
-	# Cheatable python solution
-	def toLowerCase(self, str: str) -> str:
-		return str.lower()
+    # Cheatable python solution
+    def toLowerCase(self, str: str) -> str:
+        return str.lower()
 
 
 class Solution_1:
-	# Honest algorithmic solution
-	def toLowerCase(self, str: str) -> str:
-		new_str = ''
-		for s in str:
-			new_str += chr(ord(s) + 32) if 65 <= ord(s) <= 90 else s
+    # Honest algorithmic solution
+    def toLowerCase(self, str: str) -> str:
+        new_str = ""
+        for s in str:
+            new_str += chr(ord(s) + 32) if 65 <= ord(s) <= 90 else s
 
-		return new_str
+        return new_str
 
 
 # Tests
 
 cases = [
-	{"input": "Hello", "output": "hello"},
-	{"input": "here", "output": "here"},
-	{"input": "LOVELY", "output": "lovely"},
+    {"input": "Hello", "output": "hello"},
+    {"input": "here", "output": "here"},
+    {"input": "LOVELY", "output": "lovely"},
 ]
 Test(Solution_1().toLowerCase, cases, True).test()

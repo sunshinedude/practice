@@ -27,31 +27,31 @@
 
 # Definition for a binary tree node.
 class TreeNode:
-	def __init__(self, x):
-		self.val = x
-		self.left = None
-		self.right = None
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 
 class Solution:
-	# Solution using recursion
-	def searchBST(self, root: TreeNode, val: int) -> TreeNode:
-		if root.val == val:
-			return root
-		elif root.val < val:
-			return self.searchBST(root.right) if root.right else None
-		elif root.val > val:
-			return self.searchBST(root.left) if root.left else None
+    # Solution using recursion
+    def searchBST(self, root: TreeNode, val: int) -> TreeNode:
+        if root.val == val:
+            return root
+        elif root.val < val:
+            return self.searchBST(root.right) if root.right else None
+        elif root.val > val:
+            return self.searchBST(root.left) if root.left else None
 
 
 class Solution_1:
-	# Solution using cycle
-	def searchBST(self, root: TreeNode, val: int) -> TreeNode:
-		while (root):
-			if root.val < val:
-				root = root.right
-			elif root.val > val:
-				root = root.left
-			elif root.var == val:
-				return root
-		return
+    # Solution using cycle
+    def searchBST(self, root: TreeNode, val: int) -> TreeNode:
+        while root:
+            if root.val < val:
+                root = root.right
+            elif root.val > val:
+                root = root.left
+            elif root.var == val:
+                return root
+        return

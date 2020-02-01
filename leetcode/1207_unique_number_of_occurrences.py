@@ -27,20 +27,20 @@ from leetcode.test import Test
 
 
 class Solution:
-	def uniqueOccurrences(self, arr: List[int]) -> bool:
-		counter = {}
-		for i in arr:
-			if counter.get(i):
-				counter[i] += 1
-			else:
-				counter[i] = 1
-		quantity = list(counter.values())
-		return len(quantity) == len(set(quantity))
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        counter = {}
+        for i in arr:
+            if counter.get(i):
+                counter[i] += 1
+            else:
+                counter[i] = 1
+        quantity = list(counter.values())
+        return len(quantity) == len(set(quantity))
 
 
 cases = [
-	{"input": [1, 2, 2, 1, 1, 3], "output": True},
-	{"input": [1, 2], "output": False},
-	{"input": [-3, 0, 1, -3, 1, 1, 1, -3, 10, 0], "output": True}
+    {"input": [1, 2, 2, 1, 1, 3], "output": True},
+    {"input": [1, 2], "output": False},
+    {"input": [-3, 0, 1, -3, 1, 1, 1, -3, 10, 0], "output": True},
 ]
 Test(Solution().uniqueOccurrences, cases, True).test()

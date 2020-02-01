@@ -32,22 +32,24 @@ from leetcode.test import Test
 
 
 class Solution:
-	def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
-		for row in A:
-			row.reverse()
-			for i in range(len(row)):
-				row[i] = 0 if row[i] else 1
-		return A
+    def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
+        for row in A:
+            row.reverse()
+            for i in range(len(row)):
+                row[i] = 0 if row[i] else 1
+        return A
 
 
 # Tests
 
 cases = [
-	{
-		"input": [[1, 1, 0], [1, 0, 1], [0, 0, 0]],
-		"output": [[1, 0, 0], [0, 1, 0], [1, 1, 1]]},
-	{
-		"input": [[1, 1, 0, 0], [1, 0, 0, 1], [0, 1, 1, 1], [1, 0, 1, 0]],
-		"output": [[1, 1, 0, 0], [0, 1, 1, 0], [0, 0, 0, 1], [1, 0, 1, 0]]},
+    {
+        "input": [[1, 1, 0], [1, 0, 1], [0, 0, 0]],
+        "output": [[1, 0, 0], [0, 1, 0], [1, 1, 1]],
+    },
+    {
+        "input": [[1, 1, 0, 0], [1, 0, 0, 1], [0, 1, 1, 1], [1, 0, 1, 0]],
+        "output": [[1, 1, 0, 0], [0, 1, 1, 0], [0, 0, 0, 1], [1, 0, 1, 0]],
+    },
 ]
 Test(Solution().flipAndInvertImage, cases, True).test()

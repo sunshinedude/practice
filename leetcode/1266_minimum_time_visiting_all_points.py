@@ -39,21 +39,22 @@ from leetcode.test import Test
 
 
 class Solution:
-	def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
-		res = 0
-		for i in range(len(points) - 1):
-			a, b = points[i], points[i + 1]
-			res += max(
-				(a[0] - b[0] if a[0] > b[0] else b[0] - a[0]),
-				(a[1] - b[1] if a[1] > b[1] else b[1] - a[1]))
+    def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
+        res = 0
+        for i in range(len(points) - 1):
+            a, b = points[i], points[i + 1]
+            res += max(
+                (a[0] - b[0] if a[0] > b[0] else b[0] - a[0]),
+                (a[1] - b[1] if a[1] > b[1] else b[1] - a[1]),
+            )
 
-		return res
+        return res
 
 
 # Tests
 
 cases = [
-	{"input": [[1, 1], [3, 4], [-1, 0]], "output": 7},
-	{"input": [[3, 2], [-2, 2]], "output": 5},
+    {"input": [[1, 1], [3, 4], [-1, 0]], "output": 7},
+    {"input": [[3, 2], [-2, 2]], "output": 5},
 ]
 Test(Solution().minTimeToVisitAllPoints, cases, True).test()

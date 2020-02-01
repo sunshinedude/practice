@@ -40,31 +40,32 @@ from leetcode.test import Test
 
 
 class Solution:
-	def freqAlphabets(self, s: str) -> str:
-		i = 0
-		res = ''
-		while i < len(s):
-			if i < len(s) - 2:
-				if s[i + 2] == '#':
-					res += chr(int(s[i:i + 2]) + 96)
-					i += 3
-				else:
-					res += chr(int(s[i]) + 96)
-					i += 1
-			else:
-				res += chr(int(s[i]) + 96)
-				i += 1
-		return res
+    def freqAlphabets(self, s: str) -> str:
+        i = 0
+        res = ""
+        while i < len(s):
+            if i < len(s) - 2:
+                if s[i + 2] == "#":
+                    res += chr(int(s[i : i + 2]) + 96)
+                    i += 3
+                else:
+                    res += chr(int(s[i]) + 96)
+                    i += 1
+            else:
+                res += chr(int(s[i]) + 96)
+                i += 1
+        return res
 
 
 # Tests
 
 cases = [
-	{"input": "10#11#12", "output": "jkab"},
-	{"input": "1326#", "output": "acz"},
-	{"input": "25#", "output": "y"},
-	{"input": "12345678910#11#12#13#14#15#16#17#18#19#20#21#22#23#24#25#26#",
-	 "output": "abcdefghijklmnopqrstuvwxyz"},
-
+    {"input": "10#11#12", "output": "jkab"},
+    {"input": "1326#", "output": "acz"},
+    {"input": "25#", "output": "y"},
+    {
+        "input": "12345678910#11#12#13#14#15#16#17#18#19#20#21#22#23#24#25#26#",
+        "output": "abcdefghijklmnopqrstuvwxyz",
+    },
 ]
 Test(Solution().freqAlphabets, cases, True).test()

@@ -33,20 +33,20 @@ from leetcode.test import Test
 
 
 class Solution:
-	def repeatedNTimes(self, A: List[int]) -> int:
-		keep_value = {}
-		for i in A:
-			if keep_value.get(i):
-				return i
-			else:
-				keep_value[i] = 1
+    def repeatedNTimes(self, A: List[int]) -> int:
+        keep_value = {}
+        for i in A:
+            if keep_value.get(i):
+                return i
+            else:
+                keep_value[i] = 1
 
 
 # Tests
 
 cases = [
-	{"input": [1, 2, 3, 3], "output": 3},
-	{"input": [2, 1, 2, 5, 3, 2], "output": 2},
-	{"input": [5, 1, 5, 2, 5, 3, 5, 4], "output": 5},
+    {"input": [1, 2, 3, 3], "output": 3},
+    {"input": [2, 1, 2, 5, 3, 2], "output": 2},
+    {"input": [5, 1, 5, 2, 5, 3, 5, 4], "output": 5},
 ]
 Test(Solution().repeatedNTimes, cases, True).test()
