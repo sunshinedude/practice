@@ -43,7 +43,25 @@
 # Solution
 from typing import List
 
+from leetcode.test import Test
+
 
 class Solution:
     def minDeletionSize(self, A: List[str]) -> int:
-        pass
+        resp = 0
+        for i in range(len(A[0])):
+            for j in range(len(A) - 1):
+                if A[j][i] > A[j + 1][i]:
+                    resp += 1
+                    break
+        return resp
+
+
+# Tests
+
+cases = [
+    {"input": ["cba","daf","ghi"], "output": 1},
+    {"input": ["a","b"], "output": 0},
+    {"input": ["zyx","wvu","tsr"], "output": 3},
+]
+Test(Solution().minDeletionSize, cases, True).test()
