@@ -40,7 +40,28 @@
 # Solution
 from typing import List
 
+from leetcode.test import Test
+
 
 class Solution:
     def numUniqueEmails(self, emails: List[str]) -> int:
-        pass
+
+        for i in range(len(emails)):
+            email, domain = emails[i].split("@")
+            email = email.split("+")[0].replace(".", "")
+            emails[i] = email + '@' + domain
+        return len(set(emails))
+
+
+# Tests
+
+cases = [
+    {"input": ["test.email+alex@leetcode.com",
+               "test.e.mail+bob.cathy@leetcode.com",
+               "testemail+david@lee.tcode.com"],
+     "output": 2},
+
+
+]
+Test(Solution().numUniqueEmails, cases, True).test()
+
