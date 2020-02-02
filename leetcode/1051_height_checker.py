@@ -19,8 +19,24 @@
 # 1 <= heights[i] <= 100
 
 # Solution
+from typing import List
+
+from leetcode.test import Test
 
 
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
-        pass
+        sorted_heights = sorted(heights)
+        res = 0
+        for i in range(len(heights)):
+            if heights[i] != sorted_heights[i]:
+                res += 1
+        return res
+
+
+# Tests
+
+cases = [
+    {"input": [1,1,4,2,1,3], "output": 3},
+]
+Test(Solution().heightChecker, cases, True).test()

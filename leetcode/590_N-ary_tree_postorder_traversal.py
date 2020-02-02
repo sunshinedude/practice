@@ -35,7 +35,7 @@
 # Solution
 
 # Definition for a Node.
-from typing import List, Any
+from typing import List
 
 
 class Node:
@@ -45,31 +45,5 @@ class Node:
 
 
 class Solution:
-    # Regression solution
     def postorder(self, root: "Node") -> List[int]:
-        resp = []
-
-        def add_item(roots: List["Node"]):
-            if roots:
-                for i in roots:
-                    add_item(i.children)
-                    resp.append(i.children)
-
-        add_item([root] if root else [])
-        return resp
-
-
-class Solution_1:
-    # Solution with cycle
-    def postorder(self, root: "Node") -> List[int]:
-        resp = []
-
-        stack = [root] if root else []
-
-        while stack:
-            resp.insert(0, root.val)
-            if root.children:
-                stack += root.children
-            root = stack[-1]
-            stack.pop()
-        return resp
+        return list()
