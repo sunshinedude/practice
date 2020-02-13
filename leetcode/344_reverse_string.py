@@ -47,6 +47,8 @@ class Solution_1:
 
         # Only for tests
         return s
+
+
 # Tests
 
 cases = [
@@ -54,4 +56,8 @@ cases = [
     {"input": ["H", "a", "n", "n", "a", "h"], "output": ["h", "a", "n", "n", "a", "H"]},
 ]
 Test(Solution().reverseString, cases, True).test()
+cases = [
+    {"input": ["h", "e", "l", "l", "o"], "output": ["o", "l", "l", "e", "h"]},
+    {"input": ["H", "a", "n", "n", "a", "h"], "output": ["h", "a", "n", "n", "a", "H"]},
+]
 Test(Solution_1().reverseString, cases, True).test()
