@@ -40,9 +40,9 @@ class Solution(object):
             if node:
                 if L <= node.val <= R:
                     self.res += node.val
-                elif L < node.val:
+                if L < node.val:
                     r(node.left)
-                elif node.val < R:
+                if node.val < R:
                     r(node.right)
 
         self.res = 0
